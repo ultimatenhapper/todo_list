@@ -1,0 +1,28 @@
+ul {
+  list-style: none;
+  padding: 0px;
+}
+
+ul li {
+  display:block;
+  background-color: lightgreen;
+  margin: 5px 0px;
+  font-size: 2em;
+}
+
+ul li:hover {
+  background-color: green;
+  cursor: pointer;
+}
+
+ul li.pending {
+  background-color: lightcoral;
+}
+
+ul li.pending:hover {
+  background-color: red;
+}
+
+.example-fill-remaining-space {
+  flex: 1 1 auto;
+}

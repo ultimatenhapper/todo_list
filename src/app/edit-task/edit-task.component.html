@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <button mat-button (click)="back()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <span>Add task</span>
+</mat-toolbar>
+<div style="text-align: center; padding: 20px;">
+  <mat-form-field>
+    <input matInput type="text" placeholder="Enter Title"
+    [(ngModel)]="task.title"/>
+  </mat-form-field>
+</div>
+<div style="text-align: center; margin: 20px;">
+  <button *ngIf="task.pending" mat-raised-button color="primary"
+          (click)="completeTask()">Complete</button>
+</div>
+<div style="text-align: center; margin: 20px;">
+  <button mat-raised-button color="warn" (click)="deleteTask()">Delete</button>
+</div>

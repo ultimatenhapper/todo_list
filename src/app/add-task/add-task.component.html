@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <button mat-button (click)="back()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <span>Add task</span>
+</mat-toolbar>
+<div style="text-align: center; padding: 20px;">
+  <mat-form-field>
+    <input matInput type="text" placeholder="Enter title" [(ngModel)]="title">
+  </mat-form-field>
+</div>
+<div style="text-align: center;">
+  <button mat-raised-button color="primary" (click)="addTask()">Accept</button>
+</div>
