@@ -1,18 +1,21 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Task } from './task';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TasksService {
+export class TasksService implements OnInit{
   private id = 0;
   private tasks: Task[] = [];
 
-  constructor() {
+  constructor() {}
+
+  ngOnInit() {
     if (localStorage.getItem('id'))
       this.id = Number(localStorage.getItem('id'));
     if (localStorage.getItem('tasks'))
       this.tasks = JSON.parse(localStorage.getItem('tasks'));
+
   }
 
   findAllTasks(): Task[] {
@@ -32,10 +35,10 @@ export class TasksService {
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 
-  updateTask(t: Task): void {
-    let index = this.tasks.findIndex((t) => t.id === t.id);
+  updateTask(task: Task): void {
+    let index = this.tasks.findIndex((t) => t.id === task.id);
     if (index !== -1) {
-      this.tasks[index] = t;
+      this.tasks[index] = task;
       localStorage.setItem('tasks', JSON.stringify(this.tasks));
     }
   }

@@ -24,13 +24,14 @@ export class EditTaskComponent implements OnInit {
   completeTask() {
     this.task.pending = false;
     this.tasks.updateTask(this.task);
-    this.location.back();
+    this.back();
   }
 
   deleteTask() {
     this.tasks.removeTask(this.task.id);
-    this.location.back();
+    this.back();
   }
+
   ngOnInit() {
     let id = Number(this.route.snapshot.paramMap.get('id'));
     this.task = this.tasks.findTaskById(id);

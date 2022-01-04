@@ -1,7 +1,7 @@
-<mat-list-item (click)="editTask()">
+<mat-list-item >
   <mat-icon matListIcon *ngIf="!task.pending" style="color: green;">check</mat-icon>
   <mat-icon matListIcon *ngIf="task.pending" style="color: red;">error_outline</mat-icon>
-  <span>{{ task.title }}</span>
+  <span (click)="editTask()">{{ task.title }}</span>
   <span class="example-fill-remaining-space"></span>
   <button *ngIf="task.pending" mat-icon-button (click)="completeTask()">
     <mat-icon style="color: green;">check_circle</mat-icon>

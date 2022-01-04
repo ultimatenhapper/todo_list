@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class TasksListComponent implements OnInit {
   constructor(public tasks: TasksService, private router: Router) {}
 
-  deleteTask(task) {
+  deleteTask(task: Task) {
     this.tasks.removeTask(task.id);
   }
 
