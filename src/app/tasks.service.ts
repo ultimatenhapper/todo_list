@@ -1,22 +1,14 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Task } from './task';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TasksService implements OnInit{
+export class TasksService{
   private id = 0;
   private tasks: Task[] = [];
 
   constructor() {}
-
-  ngOnInit() {
-    if (localStorage.getItem('id'))
-      this.id = Number(localStorage.getItem('id'));
-    if (localStorage.getItem('tasks'))
-      this.tasks = JSON.parse(localStorage.getItem('tasks'));
-
-  }
 
   findAllTasks(): Task[] {
     return this.tasks;
@@ -49,5 +41,12 @@ export class TasksService implements OnInit{
       this.tasks.splice(index, 1);
       localStorage.setItem('tasks', JSON.stringify(this.tasks));
     }
+  }
+
+  loadTasksFromLocalstorage() {
+    if (localStorage.getItem('id'))
+      this.id = Number(localStorage.getItem('id'));
+    if (localStorage.getItem('tasks'))
+      this.tasks = JSON.parse(localStorage.getItem('tasks'));
   }
 }

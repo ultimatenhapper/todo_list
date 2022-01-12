@@ -20,6 +20,7 @@ export class TasksListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.tasks.loadTasksFromLocalstorage();
   }
 
 }
